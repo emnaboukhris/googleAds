@@ -1,10 +1,13 @@
+// @dart=2.9
 
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:googleads/banner_ad_model.dart';
 import 'package:googleads/header_widget.dart';
+import 'package:googleads/progress_line.dart';
+import 'package:googleads/station_line.dart';
 import 'package:hexcolor/hexcolor.dart';
-
+import 'package:flutter/src/material/text_theme.dart';
 import 'ads_manager.dart';
 
 
@@ -31,19 +34,18 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.grey ,
 
       ),
-      home: const GoogleAds()   );
+      home: Progress_Line()   );
   }
 }
 
 class GoogleAds extends StatefulWidget {
-  const GoogleAds({Key? key}) : super(key: key);
 
   @override
   State<GoogleAds> createState() => _GoogleAdsState();
 }
 
 class _GoogleAdsState extends State<GoogleAds> {
-  late RewardedAd _rewardedAd ;
+   RewardedAd _rewardedAd ;
   bool _isRewardedAdReady = false ;
   var _balance = 0 ;
   @override

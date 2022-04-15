@@ -74,6 +74,11 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_web_plugins:
+    dependency: transitive
+    description: flutter
+    source: sdk
+    version: "0.0.0"
   google_mobile_ads:
     dependency: "direct main"
     description:
@@ -81,6 +86,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
+  hexcolor:
+    dependency: "direct main"
+    description:
+      name: hexcolor
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.6"
+  js:
+    dependency: transitive
+    description:
+      name: js
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.6.4"
   lints:
     dependency: transitive
     description:
@@ -179,4 +198,4 @@ packages:
     version: "2.1.2"
 sdks:
   dart: ">=2.17.0-182.1.beta <3.0.0"
-  flutter: ">=1.12.13+hotfix.5"
+  flutter: ">=2.0.1"

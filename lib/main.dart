@@ -1,16 +1,21 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:googleads/banner_ad_model.dart';
+import 'package:googleads/header_widget.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 import 'ads_manager.dart';
 
 
 void main() {
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+
+  Color _primaryColor = HexColor('#80FF72');
+  Color _accentColor = HexColor('#7EE8FA') ;
 
   // This widget is the root of your application.
 
@@ -20,16 +25,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+            primaryColor: _primaryColor,
+            accentColor: _accentColor ,
+            scaffoldBackgroundColor : Colors.grey.shade100 ,
+            primarySwatch: Colors.grey ,
+
       ),
       home: const GoogleAds()   );
   }
@@ -55,13 +55,24 @@ void initState() {
 
   @override
   Widget build(BuildContext context) {
+    double _headerHeight = 250 ;
+
     return Scaffold(
-      appBar : AppBar(title: Text('Watch more win more ... '),),
-      body: Column(      children:[
+      backgroundColor: Colors.white,
+      body:
+      SingleChildScrollView(
+     child: Column(
+        children:[
+          Container(
+            height: _headerHeight ,
+            child : HeaderWidget(_headerHeight , true , Icons.login_rounded),
+
+          ) ,
+        SizedBox(height: 40,) ,
         Center(
           child:Image.asset('assets/image/coin.png',
-          height: MediaQuery.of(context).size.width,
-            width: MediaQuery.of(context).size.height,
+          height: MediaQuery.of(context).size.width/3,
+            width: MediaQuery.of(context).size.height/2,
           )
         ),
         Center(
@@ -80,9 +91,19 @@ void initState() {
           onPressed: (){
          _showRewardedAd() ;
           }, child: const Text('Watch Ad'),
-        ), 
-      ],
+          style: ElevatedButton.styleFrom(
+            primary: HexColor('#7EE8FA'), // Background color
+            onPrimary: Colors.white, // Text Color (Foreground color)
+          ),
+        ),
+
+
+        ],
       ) ,
+    )
+        ,
+      bottomSheet:   const AdBanner(),
+
     );
   }
   Future<InitializationStatus>_initGoogleMobileAds(){

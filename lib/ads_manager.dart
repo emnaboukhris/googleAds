@@ -18,4 +18,11 @@ class AdsManager {
     }
 
   }
+
+  static String get bannerAdUnitId{
+    if(testMode){
+      return BannerAd.testAdUnitId ;
+    }
+    return "ca-app-pub-6752549434299205/6409592533" ;
+  }
 }

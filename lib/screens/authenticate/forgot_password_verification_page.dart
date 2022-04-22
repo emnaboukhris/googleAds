@@ -24,7 +24,7 @@ class _ForgotPasswordVerificationPageState extends State<ForgotPasswordVerificat
 
   @override
   Widget build(BuildContext context) {
-    double _headerHeight = 300;
+    double _headerHeight = 250;
 
     return Scaffold(
         backgroundColor: Colors.white,
@@ -125,7 +125,6 @@ class _ForgotPasswordVerificationPageState extends State<ForgotPasswordVerificat
                             Container(
                               decoration: _pinSuccess ? ThemeHelper().buttonBoxDecoration(context):ThemeHelper().buttonBoxDecoration(context, "#AAAAAA","#757575"),
                               child:     Container(
-                                decoration: _pinSuccess ? ThemeHelper().buttonBoxDecoration(context):ThemeHelper().buttonBoxDecoration(context, "#AAAAAA","#757575"),
                                 child: RaisedButton(
                                   onPressed: _pinSuccess ? () {
                                     Navigator.of(context).pushAndRemoveUntil(

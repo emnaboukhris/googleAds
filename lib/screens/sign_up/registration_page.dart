@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:googleads/Layout/header_widget.dart';
 import 'package:googleads/Layout/theme_helper.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+
 
 class RegistrationPage extends  StatefulWidget{
   @override
@@ -31,7 +34,6 @@ final _nameController = TextEditingController();
          password: _passwordController.text);
 
 
-     var FirebaseFirestore;
      await FirebaseFirestore.instance.collection('users').add(
          {
            'email': _emailController.text,

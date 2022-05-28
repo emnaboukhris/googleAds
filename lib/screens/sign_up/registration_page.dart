@@ -26,9 +26,19 @@ class _RegistrationPageState extends State<RegistrationPage>{
 String imageUrl='' ;
 final _nameController = TextEditingController();
   var loading = false ;
+
+  Future<void> uploadingData() async {
+    await FirebaseFirestore.instance.collection("products").add({
+      'email': _emailController.text,
+      'imageUrl': imageUrl,
+      'name': _nameController.text,
+  }) ;}
+
+
  Future _SignUp() async {
    setState((){loading=true ; }) ;
    try {
+
      await FirebaseAuth.instance.createUserWithEmailAndPassword(
          email: _emailController.text,
          password: _passwordController.text);
@@ -41,6 +51,7 @@ final _nameController = TextEditingController();
            'name': _nameController.text,
          }
      );
+
      await showDialog(context: context, builder: (context) {
        return AlertDialog(
          title: Text('Sign up succeeded'),

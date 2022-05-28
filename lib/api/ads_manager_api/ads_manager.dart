@@ -25,4 +25,15 @@ class AdsManager {
     }
     return "ca-app-pub-6752549434299205/6409592533" ;
   }
+  static String get InterstitielAdUnitId{
+    if(testMode){
+      return BannerAd.testAdUnitId ;
+    }
+    return "ca-app-pub-6752549434299205/6409592533" ;
+  }
 }
+
+
+
+
+

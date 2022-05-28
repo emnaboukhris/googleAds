@@ -1,6 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.googleads">
-
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
@@ -10,7 +9,8 @@
         android:usesCleartextTraffic="true"
         android:name="androidx.multidex.MultiDexApplication"
        >
-
+       <meta-data android:name="com.google.android.geo.API_KEY"
+           android:value="AIzaSyAy1lMOy7J9_iFRvSEoa44I1Y9yXXdWOfs"/>
        <meta-data
            android:name="com.google.android.gms.ads.APPLICATION_ID"
            android:value="ca-app-pub-6752549434299205~8064620830"/>

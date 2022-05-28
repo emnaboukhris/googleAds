@@ -13,6 +13,7 @@ const completeColor =  Color(0xD71F9BD2);
 const inProgressColor = Color(0xff42aa5f);
 const todoColor = Color(0xD7000000);
 class ProcessTimelinePage extends StatefulWidget {
+
   final linge_num ligne  ;
   const ProcessTimelinePage( this.ligne,{Key? key}) : super(key: key);
 
@@ -21,6 +22,8 @@ class ProcessTimelinePage extends StatefulWidget {
 }
 
 class _ProcessTimelinePageState extends State<ProcessTimelinePage> {
+  final _scrollController = ScrollController();
+
   late FlutterLocalNotificationsPlugin fltrNotification ;
   late linge_num ligne  ;
   _ProcessTimelinePageState( this.ligne);
@@ -29,7 +32,12 @@ class _ProcessTimelinePageState extends State<ProcessTimelinePage> {
   late List<String> _processes =ligne.stations ;
 
   @override
+  final double _height = 80;
 
+  void _scrollToIndex(index) {
+    _scrollController.animateTo(_height * index,
+        duration: const Duration(seconds: 2), curve: Curves.easeIn);
+  }
   void initState(){
     super.initState() ;
     var androidInitilize = new AndroidInitializationSettings('app_icon') ;
@@ -99,6 +107,7 @@ class _ProcessTimelinePageState extends State<ProcessTimelinePage> {
                   connectionDirection: ConnectionDirection.before,
                   itemExtentBuilder: (_, __) => 80,
                   oppositeContentsBuilder: (context, index) {
+
                     var child ;
                     if(index<= _processIndex){
                       child =    IconButton(
@@ -219,6 +228,7 @@ class _ProcessTimelinePageState extends State<ProcessTimelinePage> {
 
 
                   connectorBuilder: (_, index, type) {
+
                     if (index > 0) {
                       if (index == _processIndex) {
                         final prevColor = getColor(index - 1);
@@ -261,6 +271,7 @@ class _ProcessTimelinePageState extends State<ProcessTimelinePage> {
           child: FloatingActionButton(
             child: Icon(FontAwesomeIcons.chevronRight),
             onPressed: () {
+
               setState(() {
                 _processIndex = (_processIndex + 1) % _processes.length;
                 var test = pressedNotif.contains(_processIndex) ;
@@ -272,6 +283,7 @@ if(test){
 
 } ;
               });
+
             },
             backgroundColor: CupertinoColors.inactiveGray,
           ),

@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:googleads/Layout/footer.dart';
+import 'package:googleads/screens/map/MapSample.dart';
 import 'package:latlong2/latlong.dart' as lating;
 import 'package:flutter_map/flutter_map.dart';
 
@@ -53,23 +54,7 @@ class _Google_MapsState extends State<Google_Maps> {
       body:  Stack(
         children: <Widget>[
           new Container(
-          child: FlutterMap(
-      options: new MapOptions(
-      center: new lating.LatLng(51.5, -0.09),
-      zoom: 13.0,
-    ),
-    layers: [
-    new TileLayerOptions(
-    urlTemplate: "https://api.mapbox.com/styles/v1/emnabkk/cl3pqxis6000x14nq9lt82csu/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZW1uYWJrayIsImEiOiJjbDNwcTVwbXUwMncxM2twNzdsMGhzdHM5In0.yELxUo17ML0Ws6hkiNhLbQ",
-    additionalOptions: {
-    'accessToken':'pk.eyJ1IjoiZW1uYWJrayIsImEiOiJjbDNwcTVwbXUwMncxM2twNzdsMGhzdHM5In0.yELxUo17ML0Ws6hkiNhLbQ',
-    'id':'mapbox.mapbox-streets-v8'
-    ,
-    },
-    ),
-
-    ],
-    ),
+          child: MapSample()
     )
 
 

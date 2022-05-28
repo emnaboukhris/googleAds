@@ -10,7 +10,7 @@
         android:name="androidx.multidex.MultiDexApplication"
        >
        <meta-data android:name="com.google.android.geo.API_KEY"
-           android:value="AIzaSyAy1lMOy7J9_iFRvSEoa44I1Y9yXXdWOfs"/>
+           android:value="@string/map_key"/>
        <meta-data
            android:name="com.google.android.gms.ads.APPLICATION_ID"
            android:value="ca-app-pub-6752549434299205~8064620830"/>

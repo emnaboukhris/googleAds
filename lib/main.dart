@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:googleads/screens/map/Location.dart';
 import 'package:googleads/screens/map/follow_location.dart';
-import 'package:googleads/screens/map/polyline.dart';
 import 'package:googleads/services/geolocator_service.dart';
 import 'package:googleads/wrapper.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -43,7 +42,11 @@ class MyApp extends StatelessWidget {
 
           ),
 
-          home:Polyline(),
+          home:Consumer<Position>(builder: (context,position,widget){
+            return (position != null)
+              ? Map( initialPosition: position):
+                Center(child: CircularProgressIndicator()) ;
+          },)
       ),
     );
   }

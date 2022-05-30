@@ -3,9 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:googleads/Layout/theme_helper.dart';
 import 'package:googleads/services/geolocator_service.dart';
-import 'package:latlong2/latlong.dart' as lating;
 
 class Map extends StatefulWidget {
   const Map({Key? key, required this.initialPosition}) : super(key: key);
